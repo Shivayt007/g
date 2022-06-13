@@ -25,21 +25,50 @@ async def start(bot, message):
 @bot.on_message(filters.regex(r'https?://[^\s]+') & filters.private)
 async def link_handler(bot, message):
     link = message.matches[0].group(0)
+    link = f"{message.text}"
     try:
-        short_link = await get_shortlink(link)
-        await message.reply(f'Here is your👉 [Short Link🎈]({short_link})', quote=True)
+        shutil.rmtree('downloads')
+    except:
+        pass
+
+    url = link
+
+
+    tmp_directory_for_each_user = "downloads"
+    if not os.path.isdir(tmp_directory_for_each_user):
+        os.makedirs(tmp_directory_for_each_user)
+    dest = tmp_directory_for_each_user
+    obj = SmartDL(url, dest)
+    obj.start()
+    path = obj.get_dest()
+    print(path)
+    files={"upload_file": open(path, "rb")}
+    #file = {'file':open('Etharkkum Thunindhavan - Official Trailer  Suriya  Sun Pictures  Pandiraj  DImman.mp4',"rb")}
+    url = 'https://store3.gofile.io/uploadfile'
+    description = {'description' :"TRVPN",'tags' : '@trvpn'}
+    r = requests.post(url,files= files)
+
+    json_data = r.json()
+    print(json_data)
+
+    directory = dest
+    try:
+        
+        await message.reply(f'{json_data}', quote=True)
     except Exception as e:
         await message.reply(f'Error: {e}', quote=True)
 
+    try:
+        shutil.rmtree(directory)
+    except:
+        pass
+    try:
+        os.remove(directory)
+    except:
+        pass
 
-async def get_shortlink(link):
-    url = 'https://gplinks.in/api'
-    params = {'api': API_KEY, 'url': link}
 
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url, params=params, raise_for_status=True) as response:
-            data = await response.json()
-            return data["shortenedUrl"]
+
 
 
 bot.run()
