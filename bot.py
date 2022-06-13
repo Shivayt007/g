@@ -23,17 +23,14 @@ bot = Client('gplink bot',
 async def start(bot, message):
     await message.reply(
         f"**𝗛𝗘𝗟𝗟𝗢🎈{message.chat.first_name}!**\n\n"
-        "𝗜'𝗺 𝗚𝗣𝗹𝗶𝗻𝗸 𝗯𝗼𝘁. 𝗝𝘂𝘀𝘁 𝘀𝗲𝗻𝗱 𝗺𝗲 𝗹𝗶𝗻𝗸 𝗮𝗻𝗱 𝗴𝗲𝘁 𝗦𝗵𝗼𝗿𝘁𝗲𝗻𝗲𝗱 𝗨𝗥𝗟. \n\n 𝗧𝗵𝗶𝘀 𝗕𝗼𝘁 𝗜𝘀 𝗠𝗮𝗱𝗲 𝗕𝘆 @CyberBoyAyush💖")
+        "𝗜'𝗺 #𝗚OFILE 𝗯𝗼𝘁. 𝗝𝘂𝘀𝘁 𝘀𝗲𝗻𝗱 𝗺𝗲 𝗹𝗶𝗻𝗸 𝗮𝗻𝗱 𝗴𝗲𝘁 #GoFile 𝗦𝗵𝗼𝗿𝘁𝗲𝗻𝗲𝗱 𝗨𝗥𝗟.Currently Support Direct Url\n\n 𝗧𝗵𝗶𝘀 𝗕𝗼𝘁 𝗜𝘀 𝗠𝗮𝗱𝗲 𝗕𝘆 @lovetoride")
 
 
 @bot.on_message(filters.regex(r'https?://[^\s]+') & filters.private)
 async def link_handler(bot, message):
     link = message.matches[0].group(0)
     link = f"{message.text}"
-    try:
-        shutil.rmtree('downloads')
-    except:
-        pass
+    
 
     url = link
 
@@ -46,6 +43,13 @@ async def link_handler(bot, message):
     obj.start()
     path = obj.get_dest()
     print(path)
+    k = obj.get_final_filesize(human=True)
+    k1 = obj.get_dl_time(human=True)
+    try:
+        
+        await message.reply(f'🔥Download Successful \n\n📂Downloaded File Size : {k}\n\n Download Completed :{k1} ..Uploading To Gofile.com..', quote=True)
+    except Exception as e:
+        await message.reply(f'Error: {e}', quote=True)
     files={"upload_file": open(path, "rb")}
     #file = {'file':open('Etharkkum Thunindhavan - Official Trailer  Suriya  Sun Pictures  Pandiraj  DImman.mp4',"rb")}
     url = 'https://store3.gofile.io/uploadfile'
