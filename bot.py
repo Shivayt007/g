@@ -6,9 +6,9 @@ from pySmartDL import SmartDL
 import shutil
 import os
 
-API_ID = environ.get('API_ID')
-API_HASH = environ.get('API_HASH')
-BOT_TOKEN = environ.get('BOT_TOKEN')
+API_ID = 2054877
+API_HASH = "4227c1e45e462209a3dcc67ada88a44f"
+BOT_TOKEN = "5233615439:AAHSw5B4t5Q93uUexXxTrMDajl9FO7Yqilk"
 API_KEY = environ.get('API_KEY', '5fd20df0c4db85798dd4f5ff3d03e3606a94f98b')
 
 bot = Client('gplink bot',
