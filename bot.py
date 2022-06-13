@@ -1,6 +1,10 @@
 from os import environ
 import aiohttp
 from pyrogram import Client, filters
+import requests 
+from pySmartDL import SmartDL
+import shutil
+import os
 
 API_ID = environ.get('API_ID')
 API_HASH = environ.get('API_HASH')
