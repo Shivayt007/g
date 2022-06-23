@@ -58,7 +58,7 @@ async def link_handler(bot, message):
 
     json_data = r.json()
     json_data = json_data['data']['downloadPage']
-    file_name =  json_data['data']['fileName']
+    file_name =  os.path.basename(path)
     print(json_data)
 
     directory = dest
