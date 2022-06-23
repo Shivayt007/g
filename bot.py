@@ -57,12 +57,14 @@ async def link_handler(bot, message):
     r = requests.post(url,files= files)
 
     json_data = r.json()
+    json_data = json_data['data']['downloadPage']
+    file_name =  json_data['data']['fileName']
     print(json_data)
 
     directory = dest
     try:
         
-        await message.reply(f'{json_data}', quote=True)
+        await message.reply(f'FileName : {file_name}\n\nDownload Link : {json_data}', quote=True)
     except Exception as e:
         await message.reply(f'Error: {e}', quote=True)
 
