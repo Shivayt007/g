@@ -33,7 +33,7 @@ async def link_handler(bot, message):
     tmp_directory_for_each_user = await bot.download_media(message, tmp_directory_for_each_user)
     file_name = os.path.basename(tmp_directory_for_each_user)
     path2 = f'downloads/{file_name}'
-    lk = ['@Team_HDT','@HEVC_Mob' , '@DevHEVC' ,'@NOob_Encoders','@NOoB_Encoders']
+    lk =['@Team_HDT','@HEVC_Mob' , '@DevHEVC' ,'@NOob_Encoders','@NOoB_Encoders','@TamilMob_LinkZz','@DVDWOALL','@HDTalkies']
     for i in lk: 
         file_name = file_name.replace(i ,"@HEVC_Moviesz ")
         file_name = file_name
