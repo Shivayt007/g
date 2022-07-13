@@ -7,7 +7,7 @@ import shutil
 import os
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, InlineQuery, InputTextMessageContent
 
-from gofile2 import Async_Gofile
+#from gofile2 import Async_Gofile
 API_ID = 4568546
 API_HASH = "07abc3db513a588ee4322eeb5f7b2433"
 BOT_TOKEN = "5410101600:AAEf17Zm-axXngsTu5rW1oyKdNsPpFjusnY"
