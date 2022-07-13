@@ -8,11 +8,12 @@ import os
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, InlineQuery, InputTextMessageContent
 
 from gofile2 import Async_Gofile
-
-BOT_TOKEN = "5349907551:AAGzEASbTKZU7lm7TL41sU44a6fhfBIBj3M"
+API_ID = 4568546
+API_HASH = "07abc3db513a588ee4322eeb5f7b2433"
+BOT_TOKEN = "5410101600:AAEf17Zm-axXngsTu5rW1oyKdNsPpFjusnY"
 API_KEY = environ.get('API_KEY', '5fd20df0c4db85798dd4f5ff3d03e3606a94f98b')
 
-bot = Client('gplinkt44bodt',
+bot = Client('gplinkt44ubodt',
              api_id=API_ID,
              api_hash=API_HASH,
              bot_token=BOT_TOKEN,
